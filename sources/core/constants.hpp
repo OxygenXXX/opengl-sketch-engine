@@ -4,10 +4,12 @@
 
 #include <cstdint>
 
+#include <GLFW/glfw3.h>
+
 namespace sk
 {
-	const uint16_t window_width = 800;
-	const uint16_t window_height = 800;
+	const GLuint window_width = 800;
+	const GLuint window_height = 800;
 
 	const char* window_title = "SKetch Engine v1.0.0";
 }

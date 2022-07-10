@@ -97,7 +97,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>D:\Local Projects\opengl-sketch-engine\libraries\glad-4.6-core\include;D:\Local Projects\opengl-sketch-engine\libraries\glfw-3.3.7.bin.WIN32\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Local Projects\opengl-sketch-engine\libraries\glm-0.9.9.8\glm;D:\Local Projects\opengl-sketch-engine\libraries\glad-4.6-core\include;D:\Local Projects\opengl-sketch-engine\libraries\glfw-3.3.7.bin.WIN32\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ObjectFileName>$(IntDir)\%(RelativeDir)\</ObjectFileName>
     </ClCompile>
     <Link>
@@ -116,7 +116,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>D:\Local Projects\opengl-sketch-engine\libraries\glad-4.6-core\include;D:\Local Projects\opengl-sketch-engine\libraries\glfw-3.3.7.bin.WIN32\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Local Projects\opengl-sketch-engine\libraries\glm-0.9.9.8\glm;D:\Local Projects\opengl-sketch-engine\libraries\glad-4.6-core\include;D:\Local Projects\opengl-sketch-engine\libraries\glfw-3.3.7.bin.WIN32\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ObjectFileName>$(IntDir)\%(RelativeDir)\</ObjectFileName>
     </ClCompile>
     <Link>
@@ -135,7 +135,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>D:\Local Projects\opengl-sketch-engine\libraries\glad-4.6-core\include;D:\Local Projects\opengl-sketch-engine\libraries\glfw-3.3.7.bin.WIN64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Local Projects\opengl-sketch-engine\libraries\glm-0.9.9.8\glm;D:\Local Projects\opengl-sketch-engine\libraries\glad-4.6-core\include;D:\Local Projects\opengl-sketch-engine\libraries\glfw-3.3.7.bin.WIN64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ObjectFileName>$(IntDir)\%(RelativeDir)\</ObjectFileName>
     </ClCompile>
     <Link>
@@ -154,7 +154,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>D:\Local Projects\opengl-sketch-engine\libraries\glad-4.6-core\include;D:\Local Projects\opengl-sketch-engine\libraries\glfw-3.3.7.bin.WIN64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Local Projects\opengl-sketch-engine\libraries\glm-0.9.9.8\glm;D:\Local Projects\opengl-sketch-engine\libraries\glad-4.6-core\include;D:\Local Projects\opengl-sketch-engine\libraries\glfw-3.3.7.bin.WIN64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ObjectFileName>$(IntDir)\%(RelativeDir)\</ObjectFileName>
     </ClCompile>
     <Link>

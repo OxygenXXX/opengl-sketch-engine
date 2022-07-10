@@ -28,5 +28,17 @@ libraries/glfw-3.3.7.bin.WIN64/lib-vc2022/
 libraries/glfw-3.3.7.bin.WIN32/docs/
 libraries/glfw-3.3.7.bin.WIN64/docs/
 
+libraries/glm-0.9.9.8/cmake/
+libraries/glm-0.9.9.8/doc/
+libraries/glm-0.9.9.8/test/
+
+libraries/glm-0.9.9.8/.appveyor.yml
+libraries/glm-0.9.9.8/.travis.yml
+
+libraries/glm-0.9.9.8/manual.md
+
+libraries/glm-0.9.9.8/CMakeLists.txt
+
+
 *.vcxproj.*
 
