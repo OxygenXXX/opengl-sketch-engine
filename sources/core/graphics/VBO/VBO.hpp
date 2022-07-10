@@ -12,7 +12,8 @@ namespace sk::graphics
 		public:
 
 		VBO(GLfloat* v_count, GLsizeiptr b_sizeptr);
-		~VBO(void);
+
+		~VBO(void) { };
 
 		void bindVertexBuffer();
 		void unbindVertexBuffer();

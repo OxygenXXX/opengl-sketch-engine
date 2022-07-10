@@ -20,7 +20,8 @@ namespace sk::graphics
 		public:
 
 		Shader(std::string v_shader, std::string f_shader);
-		~Shader(void);
+
+		~Shader(void) { };
 
 		void activateShader();
 		void deleteShader();

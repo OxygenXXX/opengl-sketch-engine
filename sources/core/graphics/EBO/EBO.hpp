@@ -11,8 +11,9 @@ namespace sk::graphics
 	{
 		public:
 
-		EBO(GLuint* e_indices, GLsizeiptr b_sizeptr);
-		~EBO(void);
+		EBO(GLuint* v_indices, GLsizeiptr b_sizeptr);
+
+		~EBO(void) { };
 
 		void bindVertexBuffer();
 		void unbindVertexBuffer();
