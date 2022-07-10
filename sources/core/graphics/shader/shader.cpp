@@ -28,8 +28,5 @@ namespace sk::graphics
 
 		glDeleteShader(gl_vertex_shader);
 		glDeleteShader(gl_fragment_shader);
-
-		//delete vertex_shader_code;
-		//delete fragment_shader_code;
 	}
 }
