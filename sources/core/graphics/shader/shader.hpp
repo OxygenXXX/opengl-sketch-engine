@@ -26,12 +26,14 @@ namespace sk::graphics
 		void activateShader();
 		void deleteShader();
 
+		public:
+	
+		GLuint gl_shader_program;
+
 		private:
 
 		std::string vertex_shader_source = "";
 		std::string fragment_shader_source = "";
-
-		GLuint gl_shader_program;
 
 		std::string read_shader_file(std::string file_path);
 	};

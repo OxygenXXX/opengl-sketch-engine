@@ -95,12 +95,16 @@ signed int main(void)
 	vertex_buffer_object.unbindVertexBuffer();
 	element_buffer_object.unbindVertexBuffer();
 
+	GLuint shader_uniform = glGetUniformLocation(default_shader.gl_shader_program, "vertex_scale");
+
 	while (!glfwWindowShouldClose(window_controller))
 	{
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		default_shader.activateShader();
+
+		glUniform1f(shader_uniform, 0.65f);
 
 		vertex_array_objet.bindArrayBuffer();
 
