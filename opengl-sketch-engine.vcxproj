@@ -167,6 +167,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="sources\core\application\application.cpp" />
     <ClCompile Include="sources\core\graphics\EBO\EBO.cpp" />
     <ClCompile Include="libraries\glad-4.6-core\src\glad.c" />
     <ClCompile Include="sources\core\graphics\EBO\utils\bind_buffer.cpp" />
@@ -432,6 +433,7 @@
     <None Include="libraries\glfw-3.3.7.bin.WIN64\docs\html\window_guide.html" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="sources\core\application\application.hpp" />
     <ClInclude Include="sources\core\graphics\EBO\EBO.hpp" />
     <ClInclude Include="libraries\glad-4.6-core\include\glad\glad.h" />
     <ClInclude Include="libraries\glad-4.6-core\include\KHR\khrplatform.h" />

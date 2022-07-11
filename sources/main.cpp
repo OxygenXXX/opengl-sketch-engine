@@ -31,12 +31,12 @@ GLFWwindow* window_controller = nullptr;
 
 GLfloat triangle_vertices[] =
 {
-	-0.5f, -0.5f * float(std::sqrt(3)) / 3, 0.0f,
-	 0.5f, -0.5f * float(std::sqrt(3)) / 3, 0.0f,
-	 0.0f,  0.5f * float(std::sqrt(3)) * 2 / 3, 0.0f,
-	-0.5f / 2 , 0.5f * float(std::sqrt(3)) / 6, 0.0f,
-	 0.5f / 2, 0.5f * float(std::sqrt(3)) / 6, 0.0f,
-	 0.0f, -0.5f * float(std::sqrt(3)) / 3, 0.0f,
+	-0.5f,     -0.5f * float(std::sqrt(3)) / 3,     0.0f, 0.0f, 1.0f, 0.0f,
+	 0.5f,     -0.5f * float(std::sqrt(3)) / 3,     0.0f, 0.0f, 0.0f, 1.0f,
+	 0.0f,	    0.5f * float(std::sqrt(3)) * 2 / 3, 0.0f, 1.0f, 0.0f, 0.0f,
+	-0.5f / 2,  0.5f * float(std::sqrt(3)) / 6,     0.0f, 1.0f, 1.0f, 0.0f,
+	 0.5f / 2,  0.5f * float(std::sqrt(3)) / 6,     0.0f, 0.0f, 1.0f, 1.0f,
+	 0.0f,     -0.5f * float(std::sqrt(3)) / 3,     0.0f, 1.0f, 0.0f, 1.0f
 };
 
 GLuint triangle_indices[] = { 0, 3, 5, 3, 2, 4, 5, 4, 1 };
@@ -87,7 +87,8 @@ signed int main(void)
 	VBO vertex_buffer_object(triangle_vertices, sizeof(triangle_vertices));
 	EBO element_buffer_object(triangle_indices, sizeof(triangle_indices));
 
-	vertex_array_objet.linkVertexBuffer(vertex_buffer_object, 0);
+	vertex_array_objet.linkVertexAttrib(vertex_buffer_object, 0, 3, GL_FLOAT, 6 * sizeof(float), (void*)(0));
+	vertex_array_objet.linkVertexAttrib(vertex_buffer_object, 1, 3, GL_FLOAT, 6 * sizeof(float), (void*)(3 * sizeof(float)));
 
 	vertex_array_objet.unbindArrayBuffer();
 
