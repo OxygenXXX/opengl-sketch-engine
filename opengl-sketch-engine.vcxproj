@@ -94,11 +94,12 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>D:\Local Projects\opengl-sketch-engine\libraries\glm-0.9.9.8\glm;D:\Local Projects\opengl-sketch-engine\libraries\glad-4.6-core\include;D:\Local Projects\opengl-sketch-engine\libraries\glfw-3.3.7.bin.WIN32\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Local Projects\opengl-sketch-engine\libraries\stb-master;D:\Local Projects\opengl-sketch-engine\libraries\glm-0.9.9.8\glm;D:\Local Projects\opengl-sketch-engine\libraries\glad-4.6-core\include;D:\Local Projects\opengl-sketch-engine\libraries\glfw-3.3.7.bin.WIN32\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ObjectFileName>$(IntDir)\%(RelativeDir)\</ObjectFileName>
+      <UndefinePreprocessorDefinitions>%(UndefinePreprocessorDefinitions)</UndefinePreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -113,11 +114,12 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>D:\Local Projects\opengl-sketch-engine\libraries\glm-0.9.9.8\glm;D:\Local Projects\opengl-sketch-engine\libraries\glad-4.6-core\include;D:\Local Projects\opengl-sketch-engine\libraries\glfw-3.3.7.bin.WIN32\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Local Projects\opengl-sketch-engine\libraries\stb-master;D:\Local Projects\opengl-sketch-engine\libraries\glm-0.9.9.8\glm;D:\Local Projects\opengl-sketch-engine\libraries\glad-4.6-core\include;D:\Local Projects\opengl-sketch-engine\libraries\glfw-3.3.7.bin.WIN32\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ObjectFileName>$(IntDir)\%(RelativeDir)\</ObjectFileName>
+      <UndefinePreprocessorDefinitions>%(UndefinePreprocessorDefinitions)</UndefinePreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -132,11 +134,12 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>D:\Local Projects\opengl-sketch-engine\libraries\glm-0.9.9.8\glm;D:\Local Projects\opengl-sketch-engine\libraries\glad-4.6-core\include;D:\Local Projects\opengl-sketch-engine\libraries\glfw-3.3.7.bin.WIN64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Local Projects\opengl-sketch-engine\libraries\stb-master;D:\Local Projects\opengl-sketch-engine\libraries\glm-0.9.9.8\glm;D:\Local Projects\opengl-sketch-engine\libraries\glad-4.6-core\include;D:\Local Projects\opengl-sketch-engine\libraries\glfw-3.3.7.bin.WIN64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ObjectFileName>$(IntDir)\%(RelativeDir)\</ObjectFileName>
+      <UndefinePreprocessorDefinitions>%(UndefinePreprocessorDefinitions)</UndefinePreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -151,11 +154,12 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>D:\Local Projects\opengl-sketch-engine\libraries\glm-0.9.9.8\glm;D:\Local Projects\opengl-sketch-engine\libraries\glad-4.6-core\include;D:\Local Projects\opengl-sketch-engine\libraries\glfw-3.3.7.bin.WIN64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Local Projects\opengl-sketch-engine\libraries\stb-master;D:\Local Projects\opengl-sketch-engine\libraries\glm-0.9.9.8\glm;D:\Local Projects\opengl-sketch-engine\libraries\glad-4.6-core\include;D:\Local Projects\opengl-sketch-engine\libraries\glfw-3.3.7.bin.WIN64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ObjectFileName>$(IntDir)\%(RelativeDir)\</ObjectFileName>
+      <UndefinePreprocessorDefinitions>%(UndefinePreprocessorDefinitions)</UndefinePreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -445,6 +449,9 @@
     <ClInclude Include="sources\core\constants.hpp" />
     <ClInclude Include="sources\core\graphics\VBO\VBO.hpp" />
     <ClInclude Include="sources\core\graphics\VAO\VAO.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\textures\example.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -2,10 +2,12 @@
 
 layout (location = 0) in vec3 vertex_pos;
 layout (location = 1) in vec3 vertex_col;
+layout (location = 2) in vec2 vertex_tex;
 
 uniform float vertex_scale;
 
 out vec3 vertex_color;
+out vec2 vertex_texture;
 
 void main(void)
 {
@@ -18,4 +20,5 @@ void main(void)
 	gl_Position = vertex_position;
 
 	vertex_color = vec3(vertex_col.x, vertex_col.y, vertex_col.z);
+	vertex_texture = vec2(vertex_tex.x, vertex_tex.y);
 }

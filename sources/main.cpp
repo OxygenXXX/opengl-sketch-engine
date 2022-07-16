@@ -19,6 +19,16 @@
 
 #include <cmath>
 
+#define STB_IMAGE_IMPLEMENTATION
+
+#include <stb/stb_image.h>
+
+#define STB_IMAGE_RESIZE_IMPLEMENTATION
+#define STB_IMAGE_WRITE_IMPLEMENTATION
+
+#include <stb/stb_image_resize.h>
+#include <stb/stb_image_write.h>
+
 #define EXIT_SUCCESS 0
 #define EXIT_FAILURE 1
 
@@ -32,17 +42,20 @@
 
 GLFWwindow* window_controller = nullptr;
 
-GLfloat triangle_vertices[] =
+GLfloat vertices_data[] =
 {
-	-0.5f,     -0.5f * float(std::sqrt(3)) / 3,     0.0f, 0.0f, 1.0f, 0.0f,
-	 0.5f,     -0.5f * float(std::sqrt(3)) / 3,     0.0f, 0.0f, 0.0f, 1.0f,
-	 0.0f,	    0.5f * float(std::sqrt(3)) * 2 / 3, 0.0f, 1.0f, 0.0f, 0.0f,
-	-0.5f / 2,  0.5f * float(std::sqrt(3)) / 6,     0.0f, 1.0f, 1.0f, 0.0f,
-	 0.5f / 2,  0.5f * float(std::sqrt(3)) / 6,     0.0f, 0.0f, 1.0f, 1.0f,
-	 0.0f,     -0.5f * float(std::sqrt(3)) / 3,     0.0f, 1.0f, 0.0f, 1.0f
+	-0.5f, -0.5f, 0.0f,		1.0f, 0.0f, 0.0f,	0.0f, 0.0f,
+	-0.5f,  0.5f, 0.0f,		0.0f, 1.0f, 0.0f,	0.0f, 1.0f,
+	 0.5f,  0.5f, 0.0f,		0.0f, 0.0f, 1.0f,	1.0f, 1.0f,
+	 0.5f, -0.5f, 0.0f,		1.0f, 1.0f, 1.0f,	1.0f, 0.0f
 };
 
-GLuint triangle_indices[] = { 0, 3, 5, 3, 2, 4, 5, 4, 1 };
+GLuint indices_data[] = { 0, 2, 1, 0, 3, 2 };
+
+static int image_width = 0;
+static int image_height = 0;
+
+static int image_channels = 0;
 
 signed int main(void)
 {
@@ -87,18 +100,49 @@ signed int main(void)
 
 	vertex_array_objet.bindArrayBuffer();
 
-	VBO vertex_buffer_object(triangle_vertices, sizeof(triangle_vertices));
-	EBO element_buffer_object(triangle_indices, sizeof(triangle_indices));
+	VBO vertex_buffer_object(vertices_data, sizeof(vertices_data));
+	EBO element_buffer_object(indices_data, sizeof(indices_data));
 
-	vertex_array_objet.linkVertexAttrib(vertex_buffer_object, 0, 3, GL_FLOAT, 6 * sizeof(float), (void*)(0));
-	vertex_array_objet.linkVertexAttrib(vertex_buffer_object, 1, 3, GL_FLOAT, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+	vertex_array_objet.linkVertexAttrib(vertex_buffer_object, 0, 3, GL_FLOAT, 8 * sizeof(float), (void*)(0));
+	vertex_array_objet.linkVertexAttrib(vertex_buffer_object, 1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+	vertex_array_objet.linkVertexAttrib(vertex_buffer_object, 2, 2, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
 
 	vertex_array_objet.unbindArrayBuffer();
 
 	vertex_buffer_object.unbindVertexBuffer();
 	element_buffer_object.unbindVertexBuffer();
 
-	GLuint shader_uniform = glGetUniformLocation(default_shader.gl_shader_program, "vertex_scale");
+	GLuint sh_scale_uniform = glGetUniformLocation(default_shader.gl_shader_program, "vertex_scale");
+
+	stbi_uc* image_data = stbi_load("assets/textures/example.png", &image_width, &image_height, &image_channels, STBI_rgb_alpha);
+
+	GLuint gl_texture;
+
+	glGenTextures(1, &gl_texture);
+
+	glActiveTexture(GL_TEXTURE0);
+
+	glBindTexture(GL_TEXTURE_2D, gl_texture);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image_width, image_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image_data);
+
+	glGenerateMipmap(GL_TEXTURE_2D);
+
+	stbi_image_free(image_data);
+
+	glBindTexture(GL_TEXTURE_2D, 0);
+
+	GLuint sh_texture_uniform = glGetUniformLocation(default_shader.gl_shader_program, "texture_data");
+
+	default_shader.activateShader();
+
+	glUniform1i(sh_texture_uniform, 0);
 
 	while (!glfwWindowShouldClose(window_controller))
 	{
@@ -107,17 +151,13 @@ signed int main(void)
 
 		default_shader.activateShader();
 
-		glm::mat4 model = glm::mat4(1.0f);
-		glm::mat4 camera_view = glm::mat4(1.0f);
-		glm::mat4 camera_projection = glm::mat4(1.0f);
+		glUniform1f(sh_scale_uniform, 0.0f);
 
-		camera_view = glm::translate(camera_view, glm::vec3(0.0, -0.5f, -2.0f));
-
-		glUniform1f(shader_uniform, 0.0f);
+		glBindTexture(GL_TEXTURE_2D, gl_texture);
 
 		vertex_array_objet.bindArrayBuffer();
 
-		glDrawElements(GL_TRIANGLES, 9, GL_UNSIGNED_INT, 0);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
 		glfwSwapBuffers(window_controller);
 
@@ -130,6 +170,8 @@ signed int main(void)
 	element_buffer_object.deleteVertexBuffer();
 
 	default_shader.deleteShader();
+
+	glDeleteTextures(1, &gl_texture);
 
 	glfwDestroyWindow(window_controller);
 
