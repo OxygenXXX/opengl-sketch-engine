@@ -4,6 +4,9 @@
 
 #include <glm/glm.hpp>
 
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
 #include <iostream>
 
 #include <fstream>
@@ -104,7 +107,13 @@ signed int main(void)
 
 		default_shader.activateShader();
 
-		glUniform1f(shader_uniform, 0.65f);
+		glm::mat4 model = glm::mat4(1.0f);
+		glm::mat4 camera_view = glm::mat4(1.0f);
+		glm::mat4 camera_projection = glm::mat4(1.0f);
+
+		camera_view = glm::translate(camera_view, glm::vec3(0.0, -0.5f, -2.0f));
+
+		glUniform1f(shader_uniform, 0.0f);
 
 		vertex_array_objet.bindArrayBuffer();
 

@@ -39,6 +39,16 @@ libraries/glm-0.9.9.8/manual.md
 
 libraries/glm-0.9.9.8/CMakeLists.txt
 
+libraries/stb-master/.github
+
+libraries/stb-master/data
+libraries/stb-master/tools
+libraries/stb-master/tests
+libraries/stb-master/docs
+libraries/stb-master/deprecated
+
+libraries/*/.travis.yml
+
 
 *.vcxproj.*
 
