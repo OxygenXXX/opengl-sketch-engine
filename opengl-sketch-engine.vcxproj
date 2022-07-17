@@ -179,14 +179,18 @@
     <ClCompile Include="sources\core\graphics\shader\shader.cpp" />
     <ClCompile Include="sources\core\graphics\shader\utils\activate_shader.cpp" />
     <ClCompile Include="sources\core\graphics\shader\utils\read_shader_file.cpp" />
+    <ClCompile Include="sources\core\graphics\texture\utils\bind_texture.cpp" />
+    <ClCompile Include="sources\core\graphics\texture\utils\texture_uniform.cpp" />
     <ClCompile Include="sources\core\graphics\VAO\utils\bind_buffer.cpp" />
     <ClCompile Include="sources\core\graphics\VAO\utils\create_buffer.cpp" />
     <ClCompile Include="sources\core\graphics\VAO\utils\link_buffer.cpp" />
     <ClCompile Include="sources\core\graphics\VBO\utils\bind_buffer.cpp" />
     <ClCompile Include="sources\core\graphics\VBO\utils\create_buffer.cpp" />
+    <ClCompile Include="sources\core\stb_library.cpp" />
     <ClCompile Include="sources\main.cpp" />
     <ClCompile Include="sources\core\graphics\VBO\VBO.cpp" />
     <ClCompile Include="sources\core\graphics\VAO\VAO.cpp" />
+    <ClCompile Include="sources\core\graphics\texture\texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\shaders\default.frag" />
@@ -449,6 +453,7 @@
     <ClInclude Include="sources\core\constants.hpp" />
     <ClInclude Include="sources\core\graphics\VBO\VBO.hpp" />
     <ClInclude Include="sources\core\graphics\VAO\VAO.hpp" />
+    <ClInclude Include="sources\core\graphics\texture\texture.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\textures\example.png" />

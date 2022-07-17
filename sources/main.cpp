@@ -19,12 +19,7 @@
 
 #include <cmath>
 
-#define STB_IMAGE_IMPLEMENTATION
-
 #include <stb/stb_image.h>
-
-#define STB_IMAGE_RESIZE_IMPLEMENTATION
-#define STB_IMAGE_WRITE_IMPLEMENTATION
 
 #include <stb/stb_image_resize.h>
 #include <stb/stb_image_write.h>
@@ -114,29 +109,9 @@ signed int main(void)
 
 	GLuint sh_scale_uniform = glGetUniformLocation(default_shader.gl_shader_program, "vertex_scale");
 
-	stbi_uc* image_data = stbi_load("assets/textures/example.png", &image_width, &image_height, &image_channels, STBI_rgb_alpha);
+	stbi_set_flip_vertically_on_load(true);
 
-	GLuint gl_texture;
-
-	glGenTextures(1, &gl_texture);
-
-	glActiveTexture(GL_TEXTURE0);
-
-	glBindTexture(GL_TEXTURE_2D, gl_texture);
-
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image_width, image_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image_data);
-
-	glGenerateMipmap(GL_TEXTURE_2D);
-
-	stbi_image_free(image_data);
-
-	glBindTexture(GL_TEXTURE_2D, 0);
+	
 
 	GLuint sh_texture_uniform = glGetUniformLocation(default_shader.gl_shader_program, "texture_data");
 
