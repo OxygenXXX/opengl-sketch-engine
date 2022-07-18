@@ -25,6 +25,7 @@ namespace sk::graphics
 		void bindTexture();
 		void unbindTexture();
 
+		void createTexture();
 		void deleteTexture();
 
 		private:

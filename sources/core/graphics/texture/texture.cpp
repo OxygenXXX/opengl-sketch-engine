@@ -11,24 +11,24 @@ namespace sk::graphics
 		stbi_uc* image_data = stbi_load
 			(t_file.c_str(), &this->texture_width, &this->texture_width, &this->texture_channels, STBI_rgb_alpha);
 
-		glGenTextures(1, &this->gl_texture);
+		this->createTexture();
 
-		glActiveTexture(GL_TEXTURE0);
+		glActiveTexture(t_slot);
 
-		glBindTexture(GL_TEXTURE_2D, this->gl_texture);
+		this->bindTexture();
 
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		glTexParameteri(this->gl_texture_type, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameteri(this->gl_texture_type, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+		glTexParameteri(this->gl_texture_type, GL_TEXTURE_WRAP_S, GL_REPEAT);
+		glTexParameteri(this->gl_texture_type, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, this->texture_width, this->texture_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image_data);
+		glTexImage2D(this->gl_texture_type, 0, GL_RGBA, this->texture_width, this->texture_height, 0, t_format, p_type, image_data);
 
-		glGenerateMipmap(GL_TEXTURE_2D);
+		glGenerateMipmap(this->gl_texture_type);
 
 		stbi_image_free(image_data);
 
-		glBindTexture(GL_TEXTURE_2D, 0);
+		this->unbindTexture();
 	}
 }

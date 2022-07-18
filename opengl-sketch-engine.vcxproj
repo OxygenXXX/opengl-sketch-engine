@@ -180,6 +180,7 @@
     <ClCompile Include="sources\core\graphics\shader\utils\activate_shader.cpp" />
     <ClCompile Include="sources\core\graphics\shader\utils\read_shader_file.cpp" />
     <ClCompile Include="sources\core\graphics\texture\utils\bind_texture.cpp" />
+    <ClCompile Include="sources\core\graphics\texture\utils\create_texture.cpp" />
     <ClCompile Include="sources\core\graphics\texture\utils\texture_uniform.cpp" />
     <ClCompile Include="sources\core\graphics\VAO\utils\bind_buffer.cpp" />
     <ClCompile Include="sources\core\graphics\VAO\utils\create_buffer.cpp" />

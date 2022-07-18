@@ -34,6 +34,7 @@
 #include "core/graphics/EBO/EBO.hpp"
 
 #include "core/graphics/shader/shader.hpp"
+#include "core/graphics/texture/texture.hpp"
 
 GLFWwindow* window_controller = nullptr;
 
@@ -55,6 +56,7 @@ static int image_channels = 0;
 signed int main(void)
 {
 	using sk::graphics::Shader;
+	using sk::graphics::Texture;
 	
 	using sk::graphics::VBO;
 	using sk::graphics::VAO;
@@ -109,15 +111,9 @@ signed int main(void)
 
 	GLuint sh_scale_uniform = glGetUniformLocation(default_shader.gl_shader_program, "vertex_scale");
 
-	stbi_set_flip_vertically_on_load(true);
+	Texture gl_texture("assets/textures/example.png", GL_TEXTURE_2D, GL_RGBA, GL_TEXTURE0, GL_UNSIGNED_BYTE);
 
-	
-
-	GLuint sh_texture_uniform = glGetUniformLocation(default_shader.gl_shader_program, "texture_data");
-
-	default_shader.activateShader();
-
-	glUniform1i(sh_texture_uniform, 0);
+	gl_texture.textureUniform(default_shader, "texture_data", 0);
 
 	while (!glfwWindowShouldClose(window_controller))
 	{
@@ -128,7 +124,7 @@ signed int main(void)
 
 		glUniform1f(sh_scale_uniform, 0.0f);
 
-		glBindTexture(GL_TEXTURE_2D, gl_texture);
+		gl_texture.bindTexture();
 
 		vertex_array_objet.bindArrayBuffer();
 
@@ -146,7 +142,7 @@ signed int main(void)
 
 	default_shader.deleteShader();
 
-	glDeleteTextures(1, &gl_texture);
+	gl_texture.deleteTexture();
 
 	glfwDestroyWindow(window_controller);
 
