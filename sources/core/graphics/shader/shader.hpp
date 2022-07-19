@@ -10,6 +10,8 @@
 
 #include <cerrno>
 
+#include <iostream>
+
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
@@ -37,6 +39,8 @@ namespace sk::graphics
 
 		std::string read_shader_file(std::string file_path);
 	};
+
+	void compileShaderErrors(GLuint shader_source, const char* shader_type);
 }
 
 #endif

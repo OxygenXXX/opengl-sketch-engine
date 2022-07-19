@@ -178,6 +178,7 @@
     <ClCompile Include="sources\core\graphics\EBO\utils\create_buffer.cpp" />
     <ClCompile Include="sources\core\graphics\shader\shader.cpp" />
     <ClCompile Include="sources\core\graphics\shader\utils\activate_shader.cpp" />
+    <ClCompile Include="sources\core\graphics\shader\utils\compile_errors.cpp" />
     <ClCompile Include="sources\core\graphics\shader\utils\read_shader_file.cpp" />
     <ClCompile Include="sources\core\graphics\texture\utils\bind_texture.cpp" />
     <ClCompile Include="sources\core\graphics\texture\utils\create_texture.cpp" />

@@ -12,6 +12,9 @@
 #include <fstream>
 #include <sstream>
 
+#include <filesystem>
+namespace fs = std::filesystem;
+
 #include <cstdint>
 #include <string>
 
@@ -140,9 +143,9 @@ signed int main(void)
 	vertex_buffer_object.deleteVertexBuffer();
 	element_buffer_object.deleteVertexBuffer();
 
-	default_shader.deleteShader();
-
 	gl_texture.deleteTexture();
+
+	default_shader.deleteShader();
 
 	glfwDestroyWindow(window_controller);
 

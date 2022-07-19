@@ -16,8 +16,12 @@ namespace sk::graphics
 		glShaderSource(gl_vertex_shader, 1, &vertex_shader_code, NULL);
 		glCompileShader(gl_vertex_shader);
 
+		compileShaderErrors(gl_vertex_shader, "VERTEX");
+
 		glShaderSource(gl_fragment_shader, 1, &fragment_shader_code, NULL);
 		glCompileShader(gl_fragment_shader);
+
+		compileShaderErrors(gl_fragment_shader, "FRAGMENT");
 
 		this->gl_shader_program = glCreateProgram();
 
@@ -25,6 +29,8 @@ namespace sk::graphics
 		glAttachShader(this->gl_shader_program, gl_fragment_shader);
 
 		glLinkProgram(this->gl_shader_program);
+
+		compileShaderErrors(this->gl_shader_program, "PROGRAM");
 
 		glDeleteShader(gl_vertex_shader);
 		glDeleteShader(gl_fragment_shader);
